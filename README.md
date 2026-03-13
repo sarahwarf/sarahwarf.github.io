@@ -1,6 +1,6 @@
 Sarah Warfield
 ELT Professional Development Specialist 
-Shanghai, China | sarahwarf@gmail.com | WeChat: sarahwarf
+Shanghai, China | sarahwarf @ gmail.com | WeChat: sarahwarf
 
 About
 I am a language educator and teacher trainer specializing in the integration of AI into university language teaching. I currently teach academic English at NYU Shanghai and am completing a PhD in Education at Pädagogische Hochschule Heidelberg (Germany), where my research examines how university faculty understand and adopt AI in their teaching. My work explores practical ways educators can use AI tools to support language learning, feedback, and assessment while maintaining human-centered classroom practices. Through teaching, research, and professional development workshops, I focus on helping instructors experiment with new technologies in ways that strengthen pedagogy rather than replace it.
