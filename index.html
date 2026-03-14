@@ -15,6 +15,27 @@
       line-height: 1.7;
     }
 
+    nav {
+      background-color: #fff;
+      padding: 14px 20px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 12px;
+      text-decoration: none;
+      color: #555;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    nav a:hover { color: #222; }
+
     .container {
       max-width: 780px;
       margin: 0 auto;
@@ -84,42 +105,53 @@
       margin-bottom: 7px;
     }
 
-    .workshops {
+    .workshop-buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
+      margin-top: 20px;
     }
 
     @media (max-width: 600px) {
-      .workshops { grid-template-columns: 1fr; }
+      .workshop-buttons { grid-template-columns: 1fr; }
+      nav a { margin: 0 8px; font-size: 14px; }
     }
 
-    .workshop-card {
+    .workshop-btn {
+      display: block;
       background-color: #fff;
       border-radius: 8px;
       padding: 25px;
-    }
-
-    .workshop-card h4 {
-      font-size: 16px;
-      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
       color: #222;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #f2f2f2;
+      font-weight: 700;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      transition: border-color 0.2s;
     }
 
-    .workshop-card ul {
-      padding-left: 18px;
+    .workshop-btn:hover {
+      border-color: #888;
     }
 
-    .workshop-card ul li {
-      margin-bottom: 7px;
-      font-size: 15px;
+    .workshop-btn p {
+      font-weight: 400;
+      font-size: 14px;
+      color: #888;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="research.html">Research</a>
+    <a href="news.html">News</a>
+  </nav>
+
   <div class="container">
 
     <div class="header">
@@ -147,38 +179,17 @@
 
     <div class="card">
       <h3>Faculty Development Workshops</h3>
-      <p>I offer workshops and invited talks for university teachers that can be delivered as individual sessions, short workshop series, or full professional development programs, either online or in person. These sessions are designed for instructors working in EFL, EMI, and academic English contexts and focus on practical strategies teachers can apply directly in their classrooms. My sessions generally fall into two broad areas: AI-integrated teaching and language pedagogy. Universities and departments often request a specific topic, and sessions can be adapted to local needs.</p>
-    </div>
-
-    <div class="workshops">
-      <div class="workshop-card">
-        <h4>AI-Integrated Teaching</h4>
-        <ul>
-          <li>Humanistic approaches to AI in the language classroom</li>
-          <li>AI tools for speaking practice and oral feedback</li>
-          <li>Generative AI and language assessment</li>
-          <li>Chatbots and conversational AI in language learning</li>
-          <li>AI literacy for teachers and students</li>
-          <li>Designing AI-integrated classroom tasks</li>
-          <li>Ethical questions: academic integrity, authorship, and AI use</li>
-          <li>Practical AI tools for materials design and lesson planning</li>
-        </ul>
-      </div>
-
-      <div class="workshop-card">
-        <h4>Language Teaching & Pedagogy</h4>
-        <ul>
-          <li>Communicative activities for reading and writing classrooms</li>
-          <li>Teaching speaking and interactional skills in L2 classrooms</li>
-          <li>Fluency-building tasks for language learners</li>
-          <li>Teaching paraphrasing, synthesis, and academic integrity</li>
-          <li>Designing effective academic reading tasks</li>
-          <li>Graphic organizers and scaffolding for academic literacy</li>
-          <li>Formative assessment strategies for large language classes</li>
-          <li>Teaching critical thinking in EFL contexts</li>
-          <li>Integrating listening into reading-focused courses</li>
-          <li>Building student engagement and participation in language classrooms</li>
-        </ul>
+      <p>I offer workshops and invited talks for university teachers that can be delivered as individual sessions, short workshop series, or full professional development programs, either online or in person. These sessions are designed for instructors working in EFL, EMI, and academic English contexts and focus on practical strategies teachers can apply directly in their classrooms.</p>
+      <p>Click below to explore workshop topics in each area.</p>
+      <div class="workshop-buttons">
+        <a href="ai-workshops.html" class="workshop-btn">
+          AI-Integrated Teaching
+          <p>Explore topics →</p>
+        </a>
+        <a href="language-workshops.html" class="workshop-btn">
+          Language Teaching & Pedagogy
+          <p>Explore topics →</p>
+        </a>
       </div>
     </div>
 
