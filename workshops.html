@@ -78,6 +78,18 @@
       color: #333;
     }
 
+    .filters button {
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+      color: #555;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .filters button:hover { background: #f5f5f5; }
+
     .search-input {
       width: 100%;
       padding: 10px 14px;
@@ -134,7 +146,7 @@
 
     .workshop-body {
       display: none;
-      padding: 0 20px 16px;
+      padding: 12px 20px 16px;
       font-size: 14px;
       color: #555;
       line-height: 1.7;
@@ -175,28 +187,31 @@
     </div>
 
     <div class="card">
-      <input class="search-input" type="text" id="searchInput" placeholder="Search workshops..." oninput="filter()" />
+      <input class="search-input" type="text" id="searchInput" placeholder="Search workshops..." oninput="filterWorkshops()" />
       <div class="filters">
-        <select id="catFilter" onchange="filter()">
+        <select id="catFilter" onchange="filterWorkshops()">
           <option value="">All categories</option>
           <option value="AI">AI-integrated</option>
           <option value="Language">Language pedagogy</option>
         </select>
-        <select id="levelFilter" onchange="filter()">
+        <select id="levelFilter" onchange="filterWorkshops()">
           <option value="">All levels</option>
           <option value="Primary">Primary</option>
           <option value="Junior high">Junior high</option>
           <option value="Secondary">Secondary</option>
           <option value="Higher education">Higher education</option>
         </select>
-       <select id="formatFilter" onchange="filter()">
+        <select id="formatFilter" onchange="filterWorkshops()">
           <option value="">All formats</option>
           <option value="Single session">Single session</option>
           <option value="Workshop series">Workshop series</option>
           <option value="Full program">Full program</option>
         </select>
-        <button onclick="clearAll()" style="padding: 8px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #555; font-size: 14px; cursor: pointer;">Clear all</button>
+        <button onclick="clearAll()">Clear all</button>
       </div>
+      <div class="count" id="count"></div>
+      <div id="results"></div>
+    </div>
 
   </div>
 
@@ -372,7 +387,7 @@
       }
     ];
 
-    function filter() {
+    function filterWorkshops() {
       const query = document.getElementById('searchInput').value.toLowerCase();
       const cat = document.getElementById('catFilter').value;
       const level = document.getElementById('levelFilter').value;
@@ -413,14 +428,15 @@
       item.classList.toggle('open');
     }
 
-    filter();
     function clearAll() {
       document.getElementById('searchInput').value = '';
       document.getElementById('catFilter').value = '';
       document.getElementById('levelFilter').value = '';
       document.getElementById('formatFilter').value = '';
-      filter();
+      filterWorkshops();
     }
+
+    filterWorkshops();
   </script>
 
 </body>
