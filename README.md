@@ -1,6 +1,6 @@
 ![headshot](headshot.png)
-Sarah Warfield
-ELT Professional Development Specialist 
+## Sarah Warfield
+#### ELT Professional Development Specialist 
 Shanghai, China | sarahwarf @ gmail.com | WeChat: sarahwarf
 
 About
