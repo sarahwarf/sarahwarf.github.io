@@ -42,20 +42,31 @@
       padding: 25px 30px;
       margin-bottom: 20px;
     }
-    .card h2 {
+    .card > h2 {
       font-size: 22px;
       font-weight: 700;
       color: #222;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       padding-bottom: 8px;
       border-bottom: 2px solid #f2f2f2;
+    }
+    .workshop {
+      margin-bottom: 24px;
+    }
+    .workshop:last-child { margin-bottom: 0; }
+    .workshop h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 10px;
     }
     .file-list {
       list-style: none;
       padding: 0;
+      margin-left: 12px;
     }
     .file-list li {
-      padding: 10px 0;
+      padding: 8px 0;
       border-bottom: 1px solid #f2f2f2;
     }
     .file-list li:last-child { border-bottom: none; }
@@ -91,23 +102,30 @@
   <div class="container">
     <div class="card">
       <h2>Workshop Files</h2>
-      <ul class="file-list">
-        <li>
-          <a href="Building a Practical Toolkit for Evaluating AI-Generated Language Teaching Materials slidestack.pdf" download>
-            Building a Practical Toolkit for Evaluating AI-Generated Language Teaching Materials — Slides
-          </a>
-        </li>
-        <li>
-          <a href="Analyzing AI Materials A3.pdf" download>
-            Analyzing AI Materials — Handout (A3)
-          </a>
-        </li>
-        <li>
-          <a href="my quality checklist.pdf" download>
-            My Quality Checklist
-          </a>
-        </li>
-      </ul>
+
+      <div class="workshop">
+        <h3>Building a Practical Toolkit for Evaluating AI-Generated Language Teaching Materials</h3>
+        <ul class="file-list">
+          <li>
+            <a href="Building a Practical Toolkit for Evaluating AI-Generated Language Teaching Materials slidestack.pdf" download>
+              Slides
+            </a>
+          </li>
+          <li>
+            <a href="Analyzing AI Materials A3.pdf" download>
+              Analyzing AI Materials — Handout (A3)
+            </a>
+          </li>
+          <li>
+            <a href="my quality checklist.pdf" download>
+              My Quality Checklist
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Add future workshops below by copying the .workshop block above -->
+
     </div>
   </div>
 </body>
