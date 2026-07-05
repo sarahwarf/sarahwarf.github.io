@@ -99,8 +99,44 @@
 
     .card ul li { margin-bottom: 7px; }
 
+    .audience-grid {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .audience-grid .card {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cta-buttons a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 20px;
+      border-radius: 8px;
+      color: #fff;
+      transition: opacity 0.15s;
+    }
+
+    .cta-buttons a:hover { opacity: 0.9; }
+
+    .cta-buttons a.educators { background-color: #2f6fed; }
+    .cta-buttons a.students { background-color: #e07a3f; }
+
     @media (max-width: 600px) {
       nav a { margin: 0 8px; font-size: 14px; }
+      .audience-grid { flex-direction: column; }
+      .cta-buttons { flex-direction: column; }
     }
   </style>
 </head>
@@ -118,12 +154,29 @@
     <div class="header">
       <img src="headshot.png" alt="Sarah Warfield">
       <h1>Sarah Warfield</h1>
-      <h2>ELT Professional Development Specialist</h2>
+      <h2>Language Education, Higher Education, and AI Literacy</h2>
       <p>Shanghai, China | sarahwarf@gmail.com | WeChat: sarahwarf</p>
       <img src="WeChat.png" alt="WeChat QR code" style="width: 120px; margin-top: 12px; border-radius: 6px;">
       <p style="font-size: 13px; color: #aaa; margin-top: 6px;">Scan to add me on WeChat</p>
     </div>
 
+    <div class="card">
+      <p>I am an English language educator, teacher trainer, and researcher working at the intersection of second language acquisition, higher education, and artificial intelligence. I help educators and students use AI intelligently, ethically, and independently in academic learning.</p>
+      <p>My work includes professional development for university faculty, AI literacy workshops for students, and research on how AI is changing language teaching, learning, feedback, and assessment. I focus on practical approaches that strengthen pedagogy, academic integrity, learner agency, and human-centered education.</p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="card">
+        <h3>For Educators and Institutions</h3>
+        <p>Workshops, curriculum support, and professional development on AI-informed language teaching, assessment, feedback, and academic English.</p>
+      </div>
+      <div class="card">
+        <h3>For Students</h3>
+        <p>Practical training in using AI responsibly for academic writing, English-language learning, research, presentations, study skills, and independent learning.</p>
+      </div>
+    </div>
+
+    <!-- About: current bio kept as-is for now; to be revised to reflect the broader educator + student identity above -->
     <div class="card">
       <h3>About</h3>
       <p>I am a language educator and teacher trainer specializing in the integration of AI into university language teaching. I currently teach academic English at NYU Shanghai and am completing a PhD in Education at Pädagogische Hochschule Heidelberg (Germany), where my research examines how university faculty understand and adopt AI in their teaching. My work explores practical ways educators can use AI tools to support language learning, feedback, and assessment while maintaining human-centered classroom practices. Through teaching, research, and professional development workshops, I focus on helping instructors experiment with new technologies in ways that strengthen pedagogy rather than replace it.</p>
@@ -138,6 +191,11 @@
         <li>Regular invited speaker and presenter at international conferences on English language teaching, higher education, and AI in education</li>
         <li>Researcher and writer on language education and higher education pedagogy, including the integration of AI into teaching and learning</li>
       </ul>
+    </div>
+
+    <div class="cta-buttons">
+      <a class="educators" href="educators.html">For Educators →</a>
+      <a class="students" href="students.html">For Students →</a>
     </div>
 
   </div>
