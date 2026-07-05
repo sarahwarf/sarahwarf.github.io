@@ -96,9 +96,72 @@
       border-bottom: none;
     }
 
+    .topics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .topic-item {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      overflow: hidden;
+    }
+
+    .topic-header {
+      padding: 14px 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .topic-header:hover { background: #fafafa; }
+
+    .topic-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .flagship-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #2f6fed;
+      background: #eaf0fe;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin-bottom: 6px;
+    }
+
+    .topic-arrow {
+      font-size: 13px;
+      color: #aaa;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: transform 0.2s;
+    }
+
+    .topic-body {
+      display: none;
+      padding: 0 16px 16px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 12px;
+    }
+
+    .topic-item.open .topic-body { display: block; }
+    .topic-item.open .topic-arrow { transform: rotate(180deg); }
+
     @media (max-width: 600px) {
       nav a { margin: 0 8px; font-size: 14px; }
       .track-grid { flex-direction: column; }
+      .topics-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -139,7 +202,15 @@
     </div>
 
     <div class="card">
+      <h3>Talk Topics</h3>
+      <p>The following topics can be offered as standalone guest lectures or developed into interactive workshops or short series for institutions that want more structured training. Guest lectures are delivered from existing material with light audience interaction and Q&amp;A. Workshops and series include advance planning, activities, and a more tailored learning experience.</p>
+
+      <div class="topics-grid" id="topicsGrid"></div>
+    </div>
+
+    <div class="card">
       <h3>Ways to Work Together</h3>
+      <p>Any topic above can be delivered as a guest lecture. Selected topics can also be developed into a workshop or workshop series, depending on the audience and institutional goals.</p>
 
       <div class="offer">
         <h3>Guest Lecture</h3>
@@ -160,5 +231,69 @@
     </div>
 
   </div>
+
+  <script>
+    const topics = [
+      {
+        title: "AI Literacy for Academic Success",
+        flagship: true,
+        abstract: "AI is becoming part of university study, but using it well requires more than knowing which tools to try. This talk introduces students to AI literacy for academic life: understanding what generative AI can and cannot do, using it thoughtfully for tasks such as brainstorming, reading, writing, and studying, and recognizing the risks of inaccurate information, overreliance, and academic misconduct. Drawing on practical examples from English-language and academic learning contexts, the session encourages students to remain active, critical decision-makers when working with AI. Students will leave with a clearer understanding of how AI may shape their studies and future careers, and with principles for using it responsibly, ethically, and independently."
+      },
+      {
+        title: "Writing Is Thinking: Cognitive Agency in the Age of AI",
+        abstract: "This talk helps students understand why writing is not just a final product, but part of the thinking process itself. As generative AI becomes easier to use for brainstorming, outlining, drafting, and revising, students may be tempted to hand over the stages of writing where learning happens. The talk explains how writing helps students develop ideas, test logic, organize evidence, and build academic confidence. It also recognizes that AI can be useful for language support, especially for multilingual writers. Students are introduced to a practical distinction between using AI to replace thinking and using AI to support communication after they have done the intellectual work."
+      },
+      {
+        title: "Using AI to Find Your English Writing Voice",
+        abstract: "Many multilingual students use AI to make their English sound more fluent, but they may worry that the final text no longer sounds like them. This talk focuses on how students can use AI as a language-support tool while maintaining ownership of their ideas, style, and voice. Students learn how AI can support vocabulary choice, sentence clarity, organization, tone, and revision without taking over the writing process. The session also addresses common risks, including overly polished language, inaccurate meaning, generic academic phrasing, and losing control of one's argument. The goal is to help students use AI to become clearer and more confident English writers, not invisible ones."
+      },
+      {
+        title: "AI for Academic Research: Strategies for Using Free Tools",
+        abstract: "Academic research is increasingly shaped by AI, but students need more than a list of tools. They need a sensible process for deciding when AI can help, what it cannot do, and how to remain responsible for the quality of their work. This talk introduces practical strategies for using free AI tools throughout the research process: exploring a topic, clarifying a research question, making a reading plan, working through difficult concepts, organizing notes, comparing perspectives, and preparing to explain an argument in writing or presentation. Students will see how free tools can reduce friction and support independence without replacing reading, source evaluation, citation, or academic judgment. The session emphasizes that AI is most useful when students remain active researchers who ask good questions, check information, and make their own decisions about evidence and argument."
+      },
+      {
+        title: "Critical Thinking in the Age of AI",
+        abstract: "AI tools often produce confident, fluent answers, which can make weak or inaccurate information seem trustworthy. This talk helps students develop a critical stance toward AI-generated output. Instead of asking only whether AI is allowed, students are encouraged to ask better questions: Is this accurate? What evidence supports it? What is missing? What assumptions are being made? How would I check this? The talk introduces practical strategies for evaluating AI responses, identifying errors, comparing outputs, and using source material to verify claims. Students leave with a clearer understanding of critical thinking as an active skill they must bring to AI, not something AI can do for them."
+      },
+      {
+        title: "AI, Academic Integrity, and the Fantasy of Rules",
+        abstract: "Many students want simple rules about AI: what is allowed, what is cheating, and what will get them in trouble. But in real academic settings, AI policies are often unclear, inconsistent, or changing quickly. This talk helps students move beyond rule-following toward responsible academic judgment. It explains why academic integrity is not only about avoiding punishment, but about protecting learning, authorship, evidence, and trust. Students consider common scenarios involving brainstorming, editing, translation, citation, summarizing, and drafting, and learn how to think through responsible use in different courses and assignments. The goal is to help students make better decisions even when the rules are incomplete."
+      },
+      {
+        title: "Reading in the Age of AI",
+        abstract: "AI can summarize, translate, simplify, and explain texts almost instantly, which makes it tempting for students to avoid reading difficult material themselves. This talk explains why reading still matters for academic learning, language development, and critical thinking. Students learn what is lost when they rely too heavily on summaries, including vocabulary growth, attention, interpretation, and the ability to evaluate arguments. The talk also shows how AI can support reading responsibly, for example by previewing difficult concepts, generating questions, checking comprehension, or explaining vocabulary after students engage with the text. The message is not never use AI, but do not let AI replace the reading that builds your mind."
+      },
+      {
+        title: "AI for Graduate School Readiness",
+        abstract: "Students preparing for graduate study need more than good grades. They need research habits, academic writing skills, communication strategies, and the ability to work independently. This talk introduces AI as a tool that can support graduate-school readiness when used responsibly. Students learn how AI can help with research planning, reading strategies, writing revision, presentation preparation, and professional communication. The talk also addresses the dangers of overreliance, especially for students who use AI to produce work they cannot explain or defend. It is particularly useful for undergraduates considering master's or doctoral study and postgraduate students developing stronger academic habits."
+      },
+      {
+        title: "English Communication in the AI Age",
+        abstract: "AI is changing how students write emails, prepare presentations, revise essays, practice speaking, and communicate across languages and cultures. This talk focuses on how multilingual students can use AI to strengthen English communication while still developing their own abilities. Students learn practical ways to use AI for tone, clarity, organization, vocabulary, presentation rehearsal, and intercultural communication. The talk also highlights common problems, including overly formal language, generic phrasing, cultural mismatch, and losing the speaker's intended meaning. Students are encouraged to treat AI as a communication coach, not a replacement voice."
+      },
+      {
+        title: "Parents' Guide to AI and Learning",
+        abstract: "Many parents know that students are using AI, but they are unsure whether to feel excited, worried, or both. This talk gives parents a clear, practical introduction to how students are using AI for schoolwork, English learning, writing, research, and test preparation. It explains the difference between helpful support and harmful overreliance, and addresses common concerns about cheating, motivation, critical thinking, and academic integrity. Parents learn what responsible AI use can look like at different ages and levels of independence, and how to talk with students about AI without panic or over-policing."
+      },
+    ];
+
+    const grid = document.getElementById('topicsGrid');
+    grid.innerHTML = topics.map((t, i) => `
+      <div class="topic-item" id="topic-${i}">
+        <div class="topic-header" onclick="toggleTopic(${i})">
+          <div>
+            ${t.flagship ? '<div class="flagship-tag">Flagship talk</div><br>' : ''}
+            <div class="topic-title">${t.title}</div>
+          </div>
+          <div class="topic-arrow">▼</div>
+        </div>
+        <div class="topic-body">${t.abstract}</div>
+      </div>
+    `).join('');
+
+    function toggleTopic(i) {
+      document.getElementById('topic-' + i).classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
