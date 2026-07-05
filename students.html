@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Students | Sarah Warfield</title>
+  <title>AI Literacy for Students and Families | Sarah Warfield</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -66,9 +66,40 @@
     }
 
     .card p { margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
 
     .card ul { padding-left: 18px; margin-bottom: 12px; }
     .card ul li { margin-bottom: 7px; }
+
+    .track-grid {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .track-grid .card {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 0;
+    }
+
+    .offer {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .offer:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    @media (max-width: 600px) {
+      nav a { margin: 0 8px; font-size: 14px; }
+      .track-grid { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
@@ -83,21 +114,49 @@
   <div class="container">
 
     <div class="card">
-      <h2>For Students</h2>
-      <p>I offer practical training in using AI responsibly for academic writing, English-language learning, research, presentations, study skills, and independent learning. My goal is to help you use AI as a tool that strengthens your own thinking and language skills — not one that replaces them.</p>
-      <p>This work grows out of my teaching and research at NYU Shanghai, where I focus on helping students build independent AI literacy skills alongside strong academic English and critical thinking abilities.</p>
+      <h2>AI Literacy for Students and Families</h2>
+      <p>I offer student-facing talks on practical AI literacy for academic learning, English-language development, and responsible technology use. These talks draw on my work with university educators and language programs, but are designed for non-specialist audiences: students, parents, and families who want clear, practical guidance.</p>
+    </div>
+
+    <div class="track-grid">
+      <div class="card">
+        <h3>For Students</h3>
+        <p>Using AI for studying, writing, research, presentations, English learning, and independent academic work.</p>
+      </div>
+      <div class="card">
+        <h3>For Parents and Families</h3>
+        <p>Understanding how students are using AI, what responsible use looks like, and how to support learning without panic or over-policing.</p>
+      </div>
+      <div class="card">
+        <h3>For Student Support Programs</h3>
+        <p>Guest talks for orientation, academic skills programs, writing centers, advising teams, and career-readiness initiatives.</p>
+      </div>
     </div>
 
     <div class="card">
-      <h3>Areas of focus</h3>
-      <ul>
-        <li>Using AI responsibly and effectively in academic writing, from brainstorming through revision</li>
-        <li>Building independent English-language learning habits that AI can support but not replace</li>
-        <li>Applying AI tools to research, keyword searches, and source evaluation</li>
-        <li>Preparing presentations and study materials with AI as a support tool</li>
-        <li>Developing critical thinking skills for evaluating AI-generated content</li>
-      </ul>
-      <p>If you are a student looking for guidance or a workshop for your class or program, contact me at sarahwarf&nbsp;@&nbsp;gmail.com or WeChat: sarahwarf.</p>
+      <h3>Format</h3>
+      <p>Talks are 60–90 minutes and delivered from existing material, with light audience interaction and Q&A. They are designed as keynote-style guest lectures rather than customized workshops.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ways to Work Together</h3>
+
+      <div class="offer">
+        <h3>Guest Lecture</h3>
+        <p>A single, ready-to-deliver talk for a school, program, or event — chosen from an existing emphasis such as academic work and study, career readiness, or critical thinking and responsible AI use. Best for orientation sessions, assemblies, and one-off programming.</p>
+      </div>
+
+      <div class="offer">
+        <h3>Individual Consultation</h3>
+        <p>For a student or family seeking more individualized guidance, I offer a one-time consultation: a focused look at a student's current AI use, English communication, and academic goals, with practical recommendations. This can stand on its own or serve as the entry point into an ongoing coaching package for students who want continued support.</p>
+      </div>
+
+      <div class="offer">
+        <h3>Custom Workshop or Series</h3>
+        <p>For programs and institutions that want more than a guest lecture, I offer tailored workshops and workshop series built around your group's specific needs, with advance planning and interactive activities. This is a separate, more involved offering from the standard guest lecture.</p>
+      </div>
+
+      <p>If you're not sure which format fits, reach out and we can talk it through: sarahwarf&nbsp;@&nbsp;gmail.com or WeChat: sarahwarf.</p>
     </div>
 
   </div>
