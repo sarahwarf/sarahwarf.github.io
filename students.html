@@ -71,6 +71,19 @@
     .card ul { padding-left: 18px; margin-bottom: 12px; }
     .card ul li { margin-bottom: 7px; }
 
+    .card::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .float-img {
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .float-img.left { float: left; width: 260px; margin-right: 20px; }
+
     .track-grid {
       display: flex;
       gap: 20px;
@@ -162,6 +175,7 @@
       nav a { margin: 0 8px; font-size: 14px; }
       .track-grid { flex-direction: column; }
       .topics-grid { grid-template-columns: 1fr; }
+      .float-img.left { float: none; width: 100%; margin: 0 0 12px; }
     }
   </style>
 </head>
@@ -180,6 +194,7 @@
 
     <div class="card">
       <h2>AI Literacy for Students and Families</h2>
+      <img class="float-img left" src="students-hero.jpg" alt="A student's notes and printed materials on generative AI capabilities and limitations, next to a stack of books on AI">
       <p>I offer student-facing talks on practical AI literacy for academic learning, English-language development, and responsible technology use. These talks draw on my work with university educators and language programs, but are designed for non-specialist audiences: students, parents, and families who want clear, practical guidance.</p>
     </div>
 
