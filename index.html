@@ -105,38 +105,34 @@
       margin-bottom: 20px;
     }
 
-    .audience-grid .card {
+    .audience-card {
       flex: 1;
-      margin-bottom: 0;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .cta-buttons a {
-      flex: 1;
-      text-align: center;
+      display: block;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 20px;
-      border-radius: 8px;
-      color: #fff;
-      transition: opacity 0.15s;
+      color: inherit;
+      margin-bottom: 0;
+      border: 2px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
     }
 
-    .cta-buttons a:hover { opacity: 0.9; }
+    .audience-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border-color: #2f6fed;
+    }
 
-    .cta-buttons a.educators { background-color: #2f6fed; }
-    .cta-buttons a.students { background-color: #e07a3f; }
+    .audience-card.students:hover { border-color: #e07a3f; }
+
+    .audience-card .arrow {
+      font-weight: 700;
+    }
+
+    .audience-card.educators .arrow { color: #2f6fed; }
+    .audience-card.students .arrow { color: #e07a3f; }
 
     @media (max-width: 600px) {
       nav a { margin: 0 8px; font-size: 14px; }
       .audience-grid { flex-direction: column; }
-      .cta-buttons { flex-direction: column; }
     }
   </style>
 </head>
@@ -168,19 +164,16 @@
     </div>
 
     <div class="audience-grid">
-      <div class="card">
+      <a class="card audience-card educators" href="educators.html">
         <h3>For Educators and Institutions</h3>
         <p>Workshops, curriculum support, and professional development on AI-informed language teaching, assessment, feedback, and academic English.</p>
-      </div>
-      <div class="card">
-        <h3>For Students</h3>
+        <p class="arrow">For Educators →</p>
+      </a>
+      <a class="card audience-card students" href="students.html">
+        <h3>For Students &amp; Families</h3>
         <p>Practical training in using AI responsibly for academic writing, English-language learning, research, presentations, study skills, and independent learning.</p>
-      </div>
-    </div>
-
-    <div class="cta-buttons">
-      <a class="educators" href="educators.html">For Educators →</a>
-      <a class="students" href="students.html">For Students &amp; Families →</a>
+        <p class="arrow">For Students &amp; Families →</p>
+      </a>
     </div>
 
   </div>
