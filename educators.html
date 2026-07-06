@@ -70,6 +70,20 @@
     .card ul { padding-left: 18px; margin-bottom: 12px; }
     .card ul li { margin-bottom: 7px; }
 
+    .card::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .float-img {
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .float-img.right { float: right; width: 220px; margin-left: 20px; }
+    .float-img.left { float: left; width: 220px; margin-right: 20px; }
+
     .link-buttons {
       display: flex;
       gap: 16px;
@@ -93,6 +107,7 @@
     @media (max-width: 600px) {
       nav a { margin: 0 8px; font-size: 14px; }
       .link-buttons { flex-direction: column; }
+      .float-img.right, .float-img.left { float: none; width: 100%; margin: 0 0 12px; }
     }
   </style>
 </head>
@@ -111,12 +126,14 @@
 
     <div class="card">
       <h2>For Educators and Institutions</h2>
+      <img class="float-img right" src="sisu-workshop.jpg" alt="Sarah Warfield presenting at Shanghai International Studies University">
       <p>I work with university faculty and language programs on AI-informed teaching, assessment, feedback, and academic English. My professional development focuses on practical strategies that instructors can apply directly in their classrooms while keeping pedagogy — not the tools themselves — at the center.</p>
       <p>I offer workshops and invited talks that can be delivered as individual sessions, short series, or full professional development programs, either online or in person, and adapted to your institutional context.</p>
     </div>
 
     <div class="card">
       <h3>What this includes</h3>
+      <img class="float-img left" src="sisu-group.jpg" alt="Sarah Warfield with graduate students at Shanghai International Studies University">
       <ul>
         <li>Workshops and talks on AI-informed language teaching, assessment, and feedback</li>
         <li>Curriculum support for EFL, EMI, and academic English programs</li>
