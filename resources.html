@@ -50,26 +50,87 @@
       padding-bottom: 8px;
       border-bottom: 2px solid #f2f2f2;
     }
-    .workshop {
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid #e8e8e8;
+    select#workshop-select {
+      width: 100%;
+      font-size: 16px;
+      font-family: inherit;
+      color: #333;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background-color: #fafafa;
+      margin-bottom: 24px;
     }
-    .workshop:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
+    .session {
+      border: 1px solid #e8e8e8;
+      border-radius: 6px;
+      margin-bottom: 12px;
     }
-    .workshop h3 {
+    .session:last-child { margin-bottom: 0; }
+    .session > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 18px;
       font-size: 16px;
       font-weight: 700;
-      color: #444;
-      margin-bottom: 10px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+    .session > summary::-webkit-details-marker { display: none; }
+    .session > summary::after {
+      content: "▾";
+      color: #999;
+      transition: transform 0.15s ease;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    .session[open] > summary::after { transform: rotate(180deg); }
+    .session > summary:hover { color: #000; }
+    .session-body {
+      padding: 0 18px 16px;
+    }
+    .subgroup {
+      margin-top: 12px;
+    }
+    .subgroup h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+    .subgroup-details {
+      margin-top: 12px;
+    }
+    .subgroup-details summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .subgroup-details summary::-webkit-details-marker { display: none; }
+    .subgroup-details summary::before {
+      content: "▸";
+      font-size: 11px;
+      color: #aaa;
+      transition: transform 0.15s ease;
+    }
+    .subgroup-details[open] summary::before { transform: rotate(90deg); }
+    .subgroup-details summary:hover { color: #555; }
+    .subgroup-details .file-list { margin-top: 4px; }
     .file-list {
       list-style: none;
       padding: 0;
-      margin-left: 12px;
+      margin-left: 0;
     }
     .file-list li {
       padding: 8px 0;
@@ -93,6 +154,23 @@
       border-radius: 4px;
       flex-shrink: 0;
     }
+    .empty-note {
+      color: #888;
+      font-size: 15px;
+      font-style: italic;
+    }
+    .blurb {
+      background-color: #f9f7f2;
+      border-left: 3px solid #ddd0a8;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: #555;
+      font-style: italic;
+      white-space: pre-wrap;
+      display: none;
+    }
+    .blurb.visible { display: block; }
     @media (max-width: 600px) {
       nav a { margin: 0 8px; font-size: 14px; }
     }
@@ -110,93 +188,142 @@
   <div class="container">
     <div class="card">
       <h2>Workshop Files</h2>
-      <p style="font-weight: 700; margin-bottom: 20px;">Feel free to download and share these resources. Note: downloads work best on a laptop or desktop — mobile devices may not support direct downloads.</p>
+      <p style="font-weight: 700; margin-bottom: 20px;">Feel free to download and share these resources. Select the workshop you attended to find its files. Note: downloads work best on a laptop or desktop — mobile devices may not support direct downloads.</p>
 
-      <!-- B: Building a Practical Toolkit -->
-      <div class="workshop">
-        <h3>Building a Practical Toolkit for Evaluating AI-Generated Language Teaching Materials</h3>
-        <ul class="file-list">
-          <li>
-            <a href="Building a Practical Toolkit for Evaluating AI-Generated Language Teaching Materials slidestack.pdf" download>
-              Slides
-            </a>
-          </li>
-          <li>
-            <a href="Analyzing AI Materials A3.pdf" download>
-              Analyzing AI Materials — Handout (A3)
-            </a>
-          </li>
-          <li>
-            <a href="my quality checklist.pdf" download>
-              My Quality Checklist
-            </a>
-          </li>
-          <li>
-            <a href="Lesson Plan 1.pdf" download>
-              Lesson Plan 1
-            </a>
-          </li>
-          <li>
-            <a href="Lesson Plan 2.pdf" download>
-              Lesson Plan 2
-            </a>
-          </li>
-          <li>
-            <a href="Lesson Plan 3.pdf" download>
-              Lesson Plan 3
-            </a>
-          </li>
-          <li>
-            <a href="Lesson Plan 4.pdf" download>
-              Lesson Plan 4
-            </a>
-          </li>
-        </ul>
-      </div>
+      <select id="workshop-select">
+        <option value="">Loading workshops…</option>
+      </select>
 
-      <!-- B: Building Critical Thinking -->
-      <div class="workshop">
-        <h3>Building Critical Thinking with AI Output Validation Tasks</h3>
-        <ul class="file-list">
-          <li>
-            <a href="building CT with AI output validation_no student results.pdf" download>
-              Slides
-            </a>
-          </li>
-          <li>
-            AI, Power, & Our Cities (Video) — available by request, email sarahwarf&nbsp;@&nbsp;gmail.com
-          </li>
-          <li>
-            <a href="Deepseek Essay_CT AI tasks.docx" download>
-              Deepseek Essay
-            </a>
-          </li>
-          <li>
-            <a href="output validation unit 2_CT AI tasks .pdf" download>
-              Output Validation Unit 2
-            </a>
-          </li>
-          <li>
-            <a href="three stories_CT AI tasks.docx" download>
-              Three Stories
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- H: Humanistic Approaches -->
-      <div class="workshop">
-        <h3>Humanistic Approaches to AI in the Language Classroom</h3>
-        <ul class="file-list">
-          <li>
-            <a href="Humanistic Approaches to AI in the Language Classroom.pdf" download>
-              Slides
-            </a>
-          </li>
-        </ul>
-      </div>
-
+      <div class="blurb" id="blurb"></div>
+      <div id="file-list"></div>
     </div>
   </div>
+
+  <script>
+    function humanize(filename) {
+      const base = filename.split("/").pop();
+      const name = base.replace(/\.[^/.]+$/, "");
+      return name.replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
+    }
+
+    function encodePath(path) {
+      return path.split("/").map(encodeURIComponent).join("/");
+    }
+
+    fetch("workshops/manifest.json")
+      .then(r => r.json())
+      .then(workshops => {
+        const select = document.getElementById("workshop-select");
+        const fileList = document.getElementById("file-list");
+
+        select.innerHTML = '<option value="">Choose a workshop…</option>' +
+          workshops.map((w, i) => `<option value="${i}">${w.title}</option>`).join("");
+
+        const blurb = document.getElementById("blurb");
+
+        function render(index) {
+          fileList.innerHTML = "";
+          blurb.textContent = "";
+          blurb.classList.remove("visible");
+          if (index === "") return;
+          const workshop = workshops[index];
+
+          fetch(`workshops/${workshop.slug}/blurb.txt`)
+            .then(r => r.ok ? r.text() : Promise.reject())
+            .then(text => {
+              if (text.trim()) {
+                blurb.textContent = text.trim();
+                blurb.classList.add("visible");
+              }
+            })
+            .catch(() => {});
+
+          if (!workshop.files.length) {
+            fileList.innerHTML = '<p class="empty-note">Files for this workshop are coming soon — check back shortly.</p>';
+            return;
+          }
+
+          const sessions = new Map();
+          const loose = [];
+          workshop.files.forEach(f => {
+            const parts = f.split("/");
+            if (parts.length === 1) { loose.push(f); return; }
+            const sessionName = parts[0];
+            if (!sessions.has(sessionName)) sessions.set(sessionName, []);
+            sessions.get(sessionName).push(f);
+          });
+
+          const fileLink = f => `
+            <li>
+              <a href="workshops/${workshop.slug}/${encodePath(f)}" download>
+                ${humanize(f)}
+              </a>
+            </li>
+          `;
+
+          const subgroupOrder = ["Presentation", "Handouts"];
+
+          function subgroupLabel(parts) {
+            if (parts.length === 2) return "Presentation";
+            if (parts.length === 3 && parts[1].toLowerCase() === "handouts") return "Handouts";
+            return parts.slice(1, -1).join(" / ");
+          }
+
+          function renderSession(files) {
+            const subgroups = new Map();
+            files.forEach(f => {
+              const label = subgroupLabel(f.split("/"));
+              if (!subgroups.has(label)) subgroups.set(label, []);
+              subgroups.get(label).push(f);
+            });
+            subgroups.forEach(fs => fs.sort((a, b) => a.localeCompare(b)));
+
+            const orderedLabels = [
+              ...subgroupOrder.filter(l => subgroups.has(l)),
+              ...Array.from(subgroups.keys()).filter(l => !subgroupOrder.includes(l))
+            ];
+
+            return orderedLabels.map(label => {
+              const list = `<ul class="file-list">${subgroups.get(label).map(fileLink).join("")}</ul>`;
+              if (label === "Handouts") {
+                return `
+                  <details class="subgroup-details">
+                    <summary>${label}</summary>
+                    ${list}
+                  </details>
+                `;
+              }
+              return `
+                <div class="subgroup">
+                  <h4>${label}</h4>
+                  ${list}
+                </div>
+              `;
+            }).join("");
+          }
+
+          const looseHtml = loose.length ? `<ul class="file-list">${loose.map(fileLink).join("")}</ul>` : "";
+
+          const sessionsHtml = Array.from(sessions.entries()).map(([name, files]) => `
+            <details class="session">
+              <summary>${name}</summary>
+              <div class="session-body">${renderSession(files)}</div>
+            </details>
+          `).join("");
+
+          fileList.innerHTML = looseHtml + sessionsHtml;
+        }
+
+        select.addEventListener("change", e => render(e.target.value));
+
+        if (workshops.length === 1) {
+          select.value = "0";
+          render("0");
+        }
+      })
+      .catch(() => {
+        document.getElementById("workshop-select").innerHTML = '<option value="">Could not load workshops</option>';
+      });
+  </script>
 </body>
 </html>
